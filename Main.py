@@ -33,3 +33,9 @@ def monte_carlo_nodes(n, trials):
             board[row] = random.choice(cols)
             row += 1
     return total/trials
+
+for n in range(4, 9):
+    board = [-1]*n
+    exact = exact_nodes(board, 0, n)
+    est = monte_carlo_nodes(n, 10000)
+    print(f"N={n} Exact={exact} MonteCarlo={est:.0f}")
